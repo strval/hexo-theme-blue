@@ -1,0 +1,18 @@
+<article>
+	<ul>
+		<% page.posts.each(function (post) {%>
+			<li>
+				<span><%= date(post.date, "YYYY/MM/DD") %></span>
+				<a href="<%- url_for(post.path) %>"><%= post.title %></a>
+			</li>
+		<% }) %>
+	</ul>
+	<% if (page.total > 1){ %>
+		<div class="page-nav">
+			<%- paginator({
+				prev_text: "Prev",
+				next_text: "Next"
+			}) %>
+		</div>
+	<% } %>
+</article>
